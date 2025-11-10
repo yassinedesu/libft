@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yael-kha <yael-kha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 22:40:38 by yael-kha          #+#    #+#             */
-/*   Updated: 2025/11/10 22:40:38 by yael-kha         ###   ########.fr       */
+/*   Created: 2025/11/10 23:25:25 by yael-kha          #+#    #+#             */
+/*   Updated: 2025/11/10 23:25:25 by yael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,35 +34,11 @@ static size_t	count_word(char *s, char c)
 static size_t	len_w(char *s, char c)
 {
 	size_t	i;
-	size_t	count;
 
 	i = 0;
-	count = 0;
-	while (s[i] && s[i] == c)
-		i++;
 	while (s[i] && s[i] != c)
-	{
-		count++;
 		i++;
-	}
-	return (count);
-}
-
-static char	**check_condition(char *s)
-{
-	char	**ptr;
-
-	if (!s)
-		return (NULL);
-	else if (*s == '\0')
-	{
-		ptr = malloc(sizeof(char *));
-		if (!ptr)
-			return (NULL);
-		ptr[0] = NULL;
-		return (ptr);
-	}
-	return (NULL);
+	return (i);
 }
 
 static void	free_me(char **s, size_t allocated)
@@ -78,30 +54,47 @@ static void	free_me(char **s, size_t allocated)
 	free(s);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**allocate_fill(char const *s, char c, size_t word_count)
 {
 	size_t	i;
 	size_t	j;
-	size_t	word_count;
 	char	**ptr;
 
-	if (!s || !*s)
-		return (check_condition(s));
-	i = 0;
-	j = 0;
-	word_count = count_word(s, c);
-	ptr = malloc((word_count + 1) * (sizeof(char *)));
+	ptr = malloc((word_count + 1) * sizeof(char *));
 	if (!ptr)
 		return (NULL);
-	while (i < word_count + 1)
+	i = 0;
+	j = 0;
+	while (i < word_count)
 	{
 		while (s[j] && s[j] == c)
 			j++;
+		ptr[i] = ft_substr(s, j, len_w((char *)&s[j], c));
+		if (!ptr[i])
+			return (free_me(ptr, i), NULL);
 		while (s[j] && s[j] != c)
-			ptr[i] = ft_substr(s, j, len_w(s, c));
+			j++;
 		i++;
 	}
 	ptr[i] = NULL;
-	free_me(ptr, word_count);
 	return (ptr);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	word_count;
+	char	**ptr;
+
+	if (!s)
+		return (NULL);
+	if (*s == '\0')
+	{
+		ptr = malloc(sizeof(char *));
+		if (!ptr)
+			return (NULL);
+		ptr[0] = NULL;
+		return (ptr);
+	}
+	word_count = count_word((char *)s, c);
+	return (allocate_fill(s, c, word_count));
 }

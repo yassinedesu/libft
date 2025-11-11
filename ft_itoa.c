@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yael-kha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yael-kha <yael-kha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 15:37:51 by yael-kha          #+#    #+#             */
-/*   Updated: 2025/11/07 18:47:31 by yael-kha         ###   ########.fr       */
+/*   Created: 2025/11/11 17:05:37 by yael-kha          #+#    #+#             */
+/*   Updated: 2025/11/11 17:05:37 by yael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	digit_count(int n)
+static int	digit_count(int n)
 {
 	int	i;
 
@@ -27,23 +27,25 @@ static	int	digit_count(int n)
 	return (i);
 }
 
-static	char	*handling_some_cases(int n)
+static char	*handling_some_cases(int n)
 {
 	if (n == 0)
 		return (ft_strdup("0"));
 	else if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	else if (n == 2147483647)
+		return (ft_strdup("2147483647"));
 	return (NULL);
 }
 
 char	*ft_itoa(int n)
 {
-	int			i;
-	int			count;
-	char		*ptr;
+	int		i;
+	int		count;
+	char	*ptr;
 
 	i = 0;
-	if (n == -2147483648 || n == 0)
+	if (n == -2147483648 || n == 0 || n == 2147483647)
 		return (handling_some_cases(n));
 	count = digit_count(n);
 	ptr = malloc(count + 1);

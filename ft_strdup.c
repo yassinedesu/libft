@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yael-kha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yael-kha <yael-kha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/29 21:45:03 by yael-kha          #+#    #+#             */
-/*   Updated: 2025/10/30 10:19:16 by yael-kha         ###   ########.fr       */
+/*   Created: 2025/11/11 17:08:34 by yael-kha          #+#    #+#             */
+/*   Updated: 2025/11/11 17:08:34 by yael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 char	*ft_strdup(const char *s)
 {
-	int				i;
-	int				len;
-	char			*dup;
+	int		i;
+	int		len;
+	char	*dup;
 
 	i = 0;
 	if (!s)

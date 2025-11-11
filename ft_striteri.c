@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yael-kha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yael-kha <yael-kha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 11:44:10 by yael-kha          #+#    #+#             */
-/*   Updated: 2025/11/09 15:06:37 by yael-kha         ###   ########.fr       */
+/*   Created: 2025/11/11 17:08:42 by yael-kha          #+#    #+#             */
+/*   Updated: 2025/11/11 17:08:42 by yael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 

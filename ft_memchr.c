@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yael-kha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yael-kha <yael-kha@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 17:57:29 by yael-kha          #+#    #+#             */
-/*   Updated: 2025/10/30 18:42:08 by yael-kha         ###   ########.fr       */
+/*   Created: 2025/11/11 17:06:02 by yael-kha          #+#    #+#             */
+/*   Updated: 2025/11/11 17:06:02 by yael-kha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t				i;
-	unsigned char		*ss;
+	size_t			i;
+	unsigned char	*ss;
 
 	i = 0;
 	ss = (unsigned char *)s;
